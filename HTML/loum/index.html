@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelwar Design - Mode Africaine Authentique </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #C8A882;
+            --color-secondary: #8B4513;
+            --color-accent: #D4AF37;
+            --color-dark: #2C1810;
+            --color-light: #FFF8F0;
+            --color-earth: #A0826D;
+            --color-burgundy: #6B2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 400;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            background-color: var(--color-burgundy);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(200, 168, 130, 0.2), rgba(212, 175, 55, 0.1)),
+                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(139,69,19,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--color-earth);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0;
+            font-family: 'Jost', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-burgundy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-secondary);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+        }
+
+        /* Decorative Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 168, 130, 0.2), transparent);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(30px);
+            }
+        }
+
+        /* Collections Section */
+        .collections {
+            padding: 6rem 5%;
+            background-color: var(--color-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            margin: 1.5rem auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--color-earth);
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .collection-card {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-earth));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><pattern id="pattern" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="45" cy="45" r="2" fill="rgba(255,255,255,0.1)"/></pattern><rect width="60" height="60" fill="url(%23pattern)"/></svg>');
+            opacity: 0.5;
+        }
+
+        /* CORRECTION IMPORTANTE: Styles pour les images */
+        .collection-image img,
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        .collection-info {
+            padding: 2rem;
+        }
+
+        .collection-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-description {
+            color: var(--color-earth);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .collection-link {
+            color: var(--color-secondary);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .collection-link:hover {
+            gap: 1rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #FFF8F0 0%, #F5EBE0 100%);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .product-details {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--color-earth);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .btn-icon {
+            width: 40px;
+            padding: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--color-accent);
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 248, 240, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 4rem 5% 2rem;
+            border-top: 3px solid var(--color-accent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 248, 240, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 248, 240, 0.1);
+            color: rgba(255, 248, 240, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInScroll 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInScroll {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">GELWAR</div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+                <div class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>GELWAR DESIGN</h1>
+            <p class="subtitle">MODE AFRICAINE AUTHENTIQUE</p>
+            <div class="hero-buttons">
+                <a href="#collections" class="btn btn-primary">Découvrir</a>
+                <a href="#produits" class="btn btn-secondary">Collections</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <h2 class="section-title">Nos Collections</h2>
+        <p class="section-subtitle">L'élégance africaine redéfinie avec authenticité et modernité</p>
+        
+        <div class="collection-grid">
+            <div class="collection-card">
+                <div class="collection-image" style="background: linear-gradient(135deg, #C8A882, #8B4513);">
+                    <img src="../loum/BAYE LAKHAD.jpg" alt="Baye Lahat Collection">
+                </div>
+                <div class="collection-info">
+                    <h3 class="collection-name">Baye Lahat</h3>
+                    <p class="collection-description">Des ensembles traditionnels sénégalais confectionnés avec des tissus premium qui fait sortir l'elegance du mouridisme. Parfaits pour les cérémonies et occasions spéciales.</p>
+                    <a href="#" class="collection-link">Voir la collection →</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image" style="background: linear-gradient(135deg, #A0826D, #6B2C2C);">
+                    <img src="../loum/1769721649542.jpg" alt="Tenues Africaines">
+                </div>
+                <div class="collection-info">
+                    <h3 class="collection-name">sac de Gelwar</h3>
+                    <p class="collection-description">Des tenues complètes qui célèbrent la richesse des motifs africains. Confort et style pour toutes les occasions.</p>
+                    <a href="#" class="collection-link">Voir la collection → 
+                        Dougeul xoll :)
+                    </a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image" style="background: linear-gradient(135deg, #D4AF37, #8B4513);">
+                    <img src="../loum/1769721649554.jpg" alt="Vestes Africaines">
+                </div>
+                <div class="collection-info">
+                    <h3 class="collection-name">Vestes Africaines</h3>
+                    <p class="collection-description">Des vestes élégantes aux motifs wax et bogolan. La touche parfaite pour un look contemporain et authentique.</p>
+                    <a href="#" class="collection-link">Voir la collection →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="produits">
+        <h2 class="section-title">Produits Vedettes</h2>
+        <p class="section-subtitle">Découvrez notre sélection exclusive</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #C8A882, #D4AF37);">
+                    <img src="../loum/1769721649557.jpg" alt="Ensemble Dakar Premium">
+                    <span class="product-badge">NOUVEAU</span>
+                </div>
+                <div class="product-details">
+                    <p class="product-category">Baye Lahat</p>
+                    <h3 class="product-name">Ensemble Dakar Premium</h3>
+                    <p class="product-price">65 000 FCFA</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small">Ajouter au panier</button>
+                        <button class="btn btn-secondary btn-small btn-icon">❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #8B4513, #6B2C2C);">
+                    <img src="../loum/1769721649551.jpg" alt="Robe Wax Élégance">
+                </div>
+                <div class="product-details">
+                    <p class="product-category">Tenue Africaine</p>
+                    <h3 class="product-name">Robe Wax Élégance</h3>
+                    <p class="product-price">45 000 FCFA</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small">Ajouter au panier</button>
+                        <button class="btn btn-secondary btn-small btn-icon">❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #A0826D, #D4AF37);">
+                    <img src="../loum/1769721649534.jpg" alt="Veste Bogolan Moderne">
+                    <span class="product-badge">TENDANCE</span>
+                </div>
+                <div class="product-details">
+                    <p class="product-category">tenue style </p>
+                    <h3 class="product-name">Veste Bogolan Moderne</h3>
+                    <p class="product-price">55 000 FCFA</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small">Ajouter au panier</button>
+                        <button class="btn btn-secondary btn-small btn-icon">❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #6B2C2C, #8B4513);">
+                    <img src="../loum/1769721649545.jpg" alt="Ensemble Thiès Royal">
+                </div>
+                <div class="product-details">
+                    <p class="product-category">Baye Lahat</p>
+                    <h3 class="product-name">Ensemble Thiès Royal</h3>
+                    <p class="product-price">70 000 FCFA</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small">Ajouter au panier</button>
+                        <button class="btn btn-secondary btn-small btn-icon">❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #D4AF37, #C8A882);">
+                    <img src="../loum/1769721649542.jpg" alt="Ensemble Kente Luxe">
+                    <span class="product-badge">NOUVEAU</span>
+                </div>
+                <div class="product-details">
+                    <p class="product-category">Tenue Africaine</p>
+                    <h3 class="product-name">Gelwar sac de Luxe</h3>
+                    <p class="product-price">50 000 FCFA</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small">Ajouter au panier</button>
+                        <button class="btn btn-secondary btn-small btn-icon">❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(135deg, #8B4513, #A0826D);">
+                    <img src="../loum/1769721649534.jpg" alt="Veste Ankara Chic">
+                </div>
+                <div class="product-details">
+                    <p class="product-category">Veste Africaine</p>
+                    <h3 class="product-name">Veste Ankara Chic</h3>
+                    <p class="product-price">48 000 FCFA</p>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small">Ajouter au panier</button>
+                        <button class="btn btn-secondary btn-small btn-icon">❤️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="apropos">
+        <div class="about-content">
+            <h2>Notre Histoire</h2>
+            <p>
+                Gelwar Design est né de la passion pour la mode africaine et le désir de partager la richesse culturelle du continent à travers des vêtements authentiques et élégants.
+            </p>
+            <p>
+                Chaque pièce est soigneusement confectionnée par des artisans talentueux, utilisant des tissus traditionnels de qualité supérieure. Nous célébrons l'héritage africain tout en apportant une touche de modernité à nos créations.
+            </p>
+            <p>
+                De Dakar à Thiès, notre mission est de vous offrir des vêtements qui reflètent votre fierté culturelle et votre style unique.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Gelwar Design</h3>
+                <p>Mode africaine authentique et élégante pour toutes les occasions.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Collections</h3>
+                <ul>
+                    <li><a href="#">Baye Lahat</a></li>
+                    <li><a href="#">Tenues Africaines</a></li>
+                    <li><a href="#">Vestes Africaines</a></li>
+                    <li><a href="#">Nouveautés</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📍 Dakar/Almadie Sénégal</li>
+                    <li>📧 contact@gelwardesign.sn</li>
+                    <li>📱 +221 78 162 93 72</li>
+                    <li>🕐 Lun - Sam: 9h - 19h</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Gelwar Design. Tous droits réservés. | Créé avec passion au Sénégal 🇸🇳</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple cart functionality
+        let cartCount = 0;
+        const cartCountElement = document.querySelector('.cart-count');
+        const addToCartButtons = document.querySelectorAll('.product-actions .btn-primary');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                cartCountElement.textContent = cartCount;
+                
+                // Visual feedback
+                button.textContent = '✓ Ajouté';
+                button.style.backgroundColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    button.textContent = 'Ajouter au panier';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .collection-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
